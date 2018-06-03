@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	
+	<h:outputStylesheet library="css" name="/bootstrap.min.css"></h:outputStylesheet>
+  	<h:outputStylesheet library="css" name="/sb-admin.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="/dataTables.bootstrap.min.css"></h:outputStylesheet>
+	
+  	
+  	  	<h:outputScript library="js" name="jquery.js"></h:outputScript>
+  	 <h:outputScript library="js" name="/bootstrap.min.js"></h:outputScript>
+  	<h:outputScript library="js" name="/jquery.dataTables.min.js"></h:outputScript>
+	<h:outputScript library="js" name="dataTables.bootstrap.min.js"></h:outputScript>
+		
+  	
+	<h:outputScript library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.easing.min.js"></h:outputScript>
+	<h:outputScript library="js" name="sb-admin.min.js"></h:outputScript>
+<script>
+/* 
+$(document).ready(function(){
+    $('#liste').DataTable();
+	});
+	*/
+	</script>
+</h:head> 
+<body class="fixed-nav sticky-footer bg-dark"> 
+	
+		<ui:insert name="menu">
+			<ui:include src="/menu.xhtml" />
+		</ui:insert>
+	<h:form prependId="false">
+  <div class="content-wrapper">
+    <div class="container-fluid">
+     
+      <div class="row">
+        <div class="col-12">
+        	<h1>Son 5 Geçmiş İzinler</h1>
+	        		
+       		
+       			<h:dataTable value="#{_Izin_Isleri.gecmisIzinler}" var="izin"  id="liste" styleClass="table table-striped table-bordered table-hover">
+       					
+       				<h:column>
+       					<h:outputText value="#{_Izin_Isleri.gecmisIzinler.indexOf(izin)+1}" style="font-weight:bold;" />
+       				
+       				</h:column>
+       				
+       				<h:column>
+       					<f:facet name="header">İrtibat No</f:facet>
+       					<h:outputText value="#{izin.izin_telefon}" />
+       				</h:column>      
+       				
+       				<h:column>
+       					<f:facet name="header">İzin Başlangıç Tarihi</f:facet>
+       					<h:outputText value="#{izin.izin_baslangic_tarih}" >
+       						<f:convertDateTime pattern="dd-MM-yyyy"/>
+       					</h:outputText>
+       				</h:column>
+       				
+       				<h:column>
+       					<f:facet name="header">İzin Bitiş Tarihi</f:facet>
+       					<h:outputText value="#{izin.izin_bitis_tarih}" >
+       						<f:convertDateTime pattern="dd-MM-yyyy"/>
+       					</h:outputText>
+       				</h:column>
+       				
+       			 				
+       				<h:column>
+       					<f:facet name="header">İzin Durumu</f:facet>
+       					<h:outputText value="#{izin.onay_durumu}" />
+       				</h:column>
+       			
+       			</h:dataTable>
+       		
+        	
+        </div>
+      </div>
+    </div>
+ </div>
+ </h:form>
+		
+			
+	
+		
+
+</body> 
+</html>

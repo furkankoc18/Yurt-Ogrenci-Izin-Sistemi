@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	
+	<h:outputStylesheet library="css" name="/bootstrap.min.css"></h:outputStylesheet>
+  	<h:outputStylesheet library="css" name="/sb-admin.css"></h:outputStylesheet>
+  	
+  	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.easing.min.js"></h:outputScript>
+	<h:outputScript library="js" name="sb-admin.min.js"></h:outputScript>
+	
+	<style>
+	
+	.bilgilerLabel
+	{
+	font-weight:bold;
+	font-size:20px;
+	color:blue;
+	}
+	
+	.bilgiler
+	{
+	font-size:16px;
+	color:black;
+	font-weight:bold;
+	}
+	</style>
+	
+
+</h:head> 
+<body class="fixed-nav sticky-footer bg-dark"> 
+	
+		<ui:insert name="as">
+			<ui:include src="/menu.xhtml" />
+		</ui:insert>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+     
+      <div class="row">
+        <div class="col-12">
+          
+          <h:form>
+          	
+          		<h:panelGrid columns="3">
+          		
+          			<h:panelGroup layout="block" style="width:250px; height:250px;position:relative; left:0px;">
+          			<h:graphicImage value="/resources/img/#{_Izin_Isleri.ogrenciBilgileri.fotoDosyaYolu}" width="250" height="250" />	
+           			</h:panelGroup>
+           		
+           			<h1>#{_Izin_Isleri.ogrenciBilgileri.isim} #{_Izin_Isleri.ogrenciBilgileri.soyisim}</h1>
+           
+           		</h:panelGrid>
+           
+          </h:form>	
+          
+         				 <br></br>
+          	
+          <h:form>
+          
+          		<h:panelGrid columns="2">
+          		
+          			<h:outputText value="T.C.No :" styleClass="bilgilerLabel"/>
+          			<h:outputText value="#{_Izin_Isleri.ogrenciBilgileri.tcNo}" styleClass="bilgiler"/>
+          		
+          			<h:outputText value="Telefon No :" styleClass="bilgilerLabel"/>
+          			<h:outputText value="#{_Izin_Isleri.ogrenciBilgileri.telefonNo}" styleClass="bilgiler" />
+          		
+          			<h:outputText value="Adres :" styleClass="bilgilerLabel"/>
+          			<h:outputText value="#{_Izin_Isleri.ogrenciBilgileri.adres}" styleClass="bilgiler"/>
+          		
+          		</h:panelGrid>    
+          
+          </h:form>
+          
+          <h:form>
+          	
+          	<h:panelGrid columns="2">
+          	
+          		<h:outputText value="Parola :" styleClass="bilgilerLabel" />
+          		<h:inputSecret value="#{_Izin_Isleri.ogrenciBilgileri.parola}" style="width:200px;" styleClass="form-control"/> 
+          	
+          		<h:column></h:column>
+          		<h:commandButton action="#{_Izin_Isleri.bilgileriGuncelle()}" value="Parola Güncelle" styleClass="btn btn-dark"/>
+          		
+          	</h:panelGrid>
+          
+          </h:form>
+          
+        </div>
+      </div>
+    </div>
+ </div>	
+
+</body> 
+</html>

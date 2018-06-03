@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Memur Ana Sayfa</title>
+	<h:outputStylesheet library="css" name="/bootstrap.min.css"></h:outputStylesheet>
+  	<h:outputStylesheet library="css" name="/sb-admin.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="/dataTables.bootstrap.min.css"></h:outputStylesheet>
+	
+  	
+  	  	<h:outputScript library="js" name="jquery.js"></h:outputScript>
+  	  	<h:outputScript library="js" name="/bootstrap.min.js"></h:outputScript>
+  	  	<h:outputScript library="js" name="/jquery.dataTables.min.js"></h:outputScript>
+		<h:outputScript library="js" name="dataTables.bootstrap.min.js"></h:outputScript>
+		
+  	
+  	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.easing.min.js"></h:outputScript>
+	<h:outputScript library="js" name="sb-admin.min.js"></h:outputScript>
+</h:head> 
+
+<body class="fixed-nav sticky-footer bg-dark"> 
+	
+		<ui:insert name="memurMenu">
+			<ui:include src="/memurMenu.xhtml" />
+		</ui:insert>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+     
+      <div class="row">
+        <div class="col-12">
+
+	<h:form enctype="multipart/form-data" >
+	
+		<h:panelGrid columns="3">
+				
+			<f:facet name="header"><h3>Yeni Öğrenci Kayıt</h3></f:facet>
+						
+			<h:outputText value="Öğrenci İsim :" style="font-weight:bold;"/>
+			<h:inputText value="#{ogrenci_Isleri.ogrenci_Bilgileri.isim}" styleClass="form-control"  requiredMessage="Lütfen İsim Giriniz!" required="true" id="isim" validatorMessage="Hatalı Değer Girdiniz!">
+				<f:validateRegex pattern="[a-zA-Z]+"/>
+			</h:inputText>
+			<h:message for="isim" style="color:red;font-weight:bold;"/>
+			
+		
+			<h:outputText value="Öğrenci Soyisim :" style="font-weight:bold;"/>
+			<h:inputText value="#{ogrenci_Isleri.ogrenci_Bilgileri.soyisim}" styleClass="form-control" requiredMessage="Lütfen Soyisim Giriniz!" required="true" id="soyisim" validatorMessage="Hatalı Değer Girdiniz!">
+				<f:validateRegex pattern="[a-zA-Z]+"/>
+			</h:inputText>
+			<h:message for="soyisim" style="color:red;font-weight:bold"/>
+			
+			<h:outputText value="Öğrenci T.C.No :" style="font-weight:bold;"/>
+			<h:inputText value="#{ogrenci_Isleri.ogrenci_Bilgileri.tcNo}" styleClass="form-control"  maxlength="11"  required="true" requiredMessage="Lütfen T.C.No Giriniz!" id="tc" converterMessage="Hatalı Karakter Girişi!" validatorMessage="Lütfen Doğru Bir Değer Giriniz!">
+				<f:validateLongRange minimum="10000000000" maximum="99999999999" ></f:validateLongRange>
+			</h:inputText>
+			<h:message for="tc" style="color:red;font-weight:bold;"/>
+			
+			<h:outputLabel value="Öğrenci Telefon No :" style="font-weight:bold;"/>
+			<h:inputText value="#{ogrenci_Isleri.ogrenci_Bilgileri.telefonNo}" styleClass="form-control" maxlength="10" required="true" requiredMessage="Lütfen Telefon No Giriniz!" id="telefonNo" converterMessage="Hatalı Karakter Girişi!" validatorMessage="Lütfen Doğru Bir Değer Giriniz!">
+				<f:validateLongRange minimum="5000000000" maximum="5999999999" ></f:validateLongRange>
+			</h:inputText>
+			<h:message for="telefonNo" style="color:red;font-weight:bold;"/>
+			
+			<h:outputText value="Öğrenci Adres :" style="font-weight:bold;"/>
+			<h:inputTextarea  value="#{ogrenci_Isleri.ogrenci_Bilgileri.adres}" styleClass="form-control" required="true" requiredMessage="Lütfen Adres Giriniz!" id="adres">
+			
+			</h:inputTextarea>
+			<h:message for="adres" style="color:red;font-weight:bold"/>
+			
+			
+			<h:outputLabel value="İlk Parola :" style="font-weight:bold;"/>
+			<h:inputSecret  value="#{ogrenci_Isleri.ogrenci_Bilgileri.parola}" styleClass="form-control" required="true" requiredMessage="Lütfen İlk Parolayı Belirleyin!" id="parola">
+			
+			</h:inputSecret>
+			<h:message for="parola" style="color:red;font-weight:bold;"/>
+			
+			<h:outputLabel value="Fotoğraf Yükle :" style="font-weight:bold;"/>
+			<h:inputFile value="#{ogrenci_Isleri.file}" required="true" requiredMessage="Lütfen Fotoğraf Yükleyiniz!" id="foto"/>
+			<h:message for="foto" style="color:red;font-weight:bold;"/>
+			
+			<h:column></h:column>
+			<h:commandButton action="#{ogrenci_Isleri.yeniOgrenciKayit()}" value="Kaydet" styleClass="btn-primary form-control"/>
+		</h:panelGrid>
+		
+	</h:form>
+		</div>
+	</div>
+  </div>
+</div>
+</body> 
+</html>

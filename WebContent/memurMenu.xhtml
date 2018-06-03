@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<h:outputStylesheet library="css" name="/bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="/font-awesome.min.css"></h:outputStylesheet>
+  	<h:outputStylesheet library="css" name="/sb-admin.css"></h:outputStylesheet>
+  	
+  	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.easing.min.js"></h:outputScript>
+	<h:outputScript library="js" name="sb-admin.min.js"></h:outputScript>
+</h:head> 
+
+<ui:composition>
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="memurAnasayfa.xhtml">Görevli İşleri</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="memurAnasayfa.xhtml">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Ana Sayfa</span>
+          </a>
+        </li>
+      
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Öğrenci İşlemleri</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li>
+              <a href="izinTalepler.xhtml">İzin Talepleri</a>
+            </li>
+            <li>
+              <a href="ogrenciKayit.xhtml">Öğrenci Kayıt</a>
+            </li>
+          </ul>
+        </li>
+     
+        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Haberler</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+          <h:form styleClass="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+           <h:commandLink  value="Çıkış" action="gorevliGiris.xhtml?faces-redirect=true"/>
+           
+            </div>
+          </h:form>
+   
+  </nav>
+   
+		
+
+
+	</ui:composition>
+</html>

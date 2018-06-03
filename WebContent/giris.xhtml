@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Giriş Yap</title>
+	<h:outputStylesheet library="css" name="/bootstrap.min.css"></h:outputStylesheet>
+  	<h:outputStylesheet library="css" name="/sb-admin.css"></h:outputStylesheet>
+
+  	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>  	
+	<h:outputScript library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.easing.min.js"></h:outputScript>
+	<h:outputScript library="js" name="sb-admin.min.js"></h:outputScript>
+
+<style>
+
+
+
+.vertical-offset-100
+{
+    padding-top:100px;
+}
+</style>
+
+<script>
+
+
+
+</script>
+
+
+</h:head> 
+
+
+
+<body background="http://localhost:8080/Ogrenci_izin_sistemi/resources/background/ogrenciGiris.jpg"  style="background-repeat:no-repeat; background-size: 100%;"> 
+
+				
+
+    
+    		
+    		<div class="panel panel-default" style="height:280px;width:430px;position:relative;left:42%;top:300px; ">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Öğrenci Giriş</h3>
+			 	</div>
+			  	<div class="panel-body" style="width:300px;">
+			    	<h:form>
+                    <fieldset>
+			    	  	<div class="form-group">
+					<h:inputText value="#{_Izin_Isleri.ogrenciBilgileri.tcNo}" styleClass="form-control"/>
+			    		</div>
+			    		<div class="form-group">
+					<h:inputSecret value="#{_Izin_Isleri.ogrenciBilgileri.parola}" styleClass="form-control"/>
+			    		</div>
+			    		
+			    	   <h:commandButton action="#{_Izin_Isleri.sistemeGiris()}" value="Giriş" styleClass="btn btn-lg btn-success btn-block"/>
+			       	</fieldset>
+			      	</h:form>
+			    </div>
+			</div>
+		
+	
+
+
+</body> 
+</html>

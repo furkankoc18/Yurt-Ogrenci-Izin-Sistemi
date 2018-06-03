@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	
+	<h:outputStylesheet library="css" name="/bootstrap.min.css"></h:outputStylesheet>
+  	<h:outputStylesheet library="css" name="/sb-admin.css"></h:outputStylesheet>
+  	
+  	<h:outputScript library="js" name="jquery.mask.js"></h:outputScript>
+  	<h:outputScript library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.easing.min.js"></h:outputScript>
+	<h:outputScript library="js" name="sb-admin.min.js"></h:outputScript>
+
+	<script>
+
+	 PrimeFaces.locales['tr'] = {
+	            closeText: 'kapat',
+	            prevText: 'geri',
+	            nextText: 'ileri',
+	            currentText: 'bugün',
+	            monthNames: ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'],
+	            monthNamesShort: ['Oca','Şub','Mar','Nis','May','Haz', 'Tem','Ağu','Eyl','Eki','Kas','Ara'],
+	            dayNames: ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'],
+	            dayNamesShort: ['Pz','Pt','Sa','Ça','Pe','Cu','Ct'],
+	            dayNamesMin: ['Pz','Pt','Sa','Ça','Pe','Cu','Ct'],
+	            weekHeader: 'Hf',
+	            firstDay: 1,
+	            isRTL: false,
+	            showMonthAfterYear: false,
+	            yearSuffix: '',
+	            timeOnlyTitle: 'Zaman Seçiniz',
+	            timeText: 'Zaman',
+	            hourText: 'Saat',
+	            minuteText: 'Dakika',
+	            secondText: 'Saniye',
+	            ampm: false,
+	            month: 'Ay',
+	            week: 'Hafta',
+	            day: 'Gün',
+	            allDayText : 'Tüm Gün'
+	        };
+//	  $.growl.error({ message: "The kitten is attacking!" });
+/*	$(document).ready(function()
+	{
+	$("#telefon").mask('(9999) 999-9999');
+	});
+	*/
+
+	</script>
+	
+</h:head> 
+
+<body class="fixed-nav sticky-footer bg-dark"> 
+<!-- 	<f:event listener="#{_Izin_Isleri.tem}" type="preRenderView"></f:event>		 -->
+		<ui:insert name="as">
+			<ui:include src="/menu.xhtml" />
+		</ui:insert>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+     
+      <div class="row">
+        <div class="col-12">
+          <h1>İzin Al</h1>
+          	<h:form prependId="false">
+          	
+          	
+				<h:panelGrid columns="4">
+				
+					<h:outputLabel value="İzin Başlangıç Tarihi :" />
+					<p:calendar pattern="dd-MM-yyyy" value="#{_Izin_Isleri.izinler.izin_baslangic_tarih}" locale="tr"  placeholder="Başlangıç"/>
+					
+					
+					<h:outputLabel value="İzin Bitiş Tarihi :" />
+					<p:calendar pattern="dd-MM-yyyy" value="#{_Izin_Isleri.izinler.izin_bitis_tarih}" locale="tr"  placeholder="Bitiş"/>
+					
+				</h:panelGrid>
+				<br></br>
+				<h:panelGrid columns="3">
+					
+					<h:outputLabel value="Adres Seçiniz :" />
+					<h:selectOneMenu value="#{_Izin_Isleri.izinler.izin_adres}" styleClass="form-control">
+						<f:selectItem itemLabel="Evliya Çelebi Mahalles, Ecehan Sokak. No:11 D:4(EV)" itemValue="Evliya Çelebi Mahalles, Ecehan Sokak. No:11 D:4(EV)"/>
+						<f:selectItem itemLabel="Evliya Çelebi Mahalles, Ecehan Sokak. No:11 D:4(EV)" itemValue="Evliya Çelebi Mahalles, Ecehan Sokak. No:11 D:4(EV)"/>
+					</h:selectOneMenu>
+					<h:column></h:column>
+		
+					<h:outputLabel value="Telefon No :" />			
+				 	<h:inputText  value="#{_Izin_Isleri.izinler.izin_telefon}" id="telefon" styleClass="telefon" required="true" maxlength="10" requiredMessage="Lütfen İrtibat No Giriniz!" validatorMessage="Hatalı Giriş Yaptınız!" converterMessage="Hatalı Karakter Girişi Yaptınız!" >
+				 		<f:validateLongRange minimum="5000000000" maximum="5999999999"></f:validateLongRange>
+					 </h:inputText>
+				 	<h:message for="telefon" style="color:red;font-weight:bold;"/>
+				 	 
+				 	
+				 	<h:column></h:column>			
+					<h:commandButton action="#{_Izin_Isleri.izinTalepEt()}" value="İzin Talebimi Gönder" styleClass="btn btn-primary" />
+				
+				</h:panelGrid>
+				<!-- <p:growl id="growl" showDetail="true"	 sticky="true"></p:growl> -->
+			</h:form>
+				<h:form>
+					<h:outputScript rendered="#{_Izin_Isleri.gorunurluk}" >
+					alert('Lütfen Doğru Bir Tarih Giriniz!!');
+					</h:outputScript>
+				</h:form>
+        </div>
+      </div>
+    </div>
+ </div>
+
+
+</body> 
+</html>

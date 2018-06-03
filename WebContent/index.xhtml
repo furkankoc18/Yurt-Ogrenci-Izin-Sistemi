@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	
+	<h:outputStylesheet library="css" name="/bootstrap.min.css"></h:outputStylesheet>
+  	<h:outputStylesheet library="css" name="/sb-admin.css"></h:outputStylesheet>
+  	
+  	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.bundle.min.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.easing.min.js"></h:outputScript>
+	<h:outputScript library="js" name="sb-admin.min.js"></h:outputScript>
+
+</h:head> 
+<body class="fixed-nav sticky-footer bg-dark" > 
+	
+		<ui:insert name="as">
+			<ui:include src="/menu.xhtml" />
+		</ui:insert>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+     
+      <div class="row">
+        <div class="col-12" >
+         
+         	<h1>Burası Ana Sayfa</h1>
+         
+        </div>
+      </div>
+    </div>
+ </div>
+		
+			
+	
+		
+
+</body> 
+</html>
